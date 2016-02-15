@@ -1,0 +1,19 @@
+Do these confs before I can use Enlightenment comfortably.
+
+- Remember not to enable Hardware acceleration on setting up Enlightenment at beginning which cause all windows to be black.
+
+- In Windows Focus Settings:
+  - Select Advanced.
+  - Focus -> Select Sloppy(Pointer is seems the same).
+  - Stacking -> Uncheck Raise windows on mouse over.
+  - Pointer -> Check Prevent all forms of pointer warping.
+  - Miscellaneous -> Check Click raises the window
+
+- Modify actions of Mouse's Left and Right buttons.
+
+- Disable actions of Desktop's Left and Right edges.
+
+- Modify Icon text in Properties of xterm's icon on taskbar to xterm to show
+  the icon properly.
+
+- Set up Input method and Startup applications.

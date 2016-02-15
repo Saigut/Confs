@@ -4,14 +4,16 @@
 !XTerm*scrollbar: yes
 ! English font
 XTerm*faceName: DejaVu Sans Mono:antialias=True:pixelsize=17
+!XTerm*faceName: SimSun:antialias=True:pixelsize=17
 ! Chinese font
-XTerm*faceNameDoublesize: Microsoft YaHei:pixelsize=17
-XTerm*inputMethod: ibus
+XTerm*faceNameDoublesize: SimSun:pixelsize=17
+XTerm*inputMethod: fcitx
 
 XTerm*metaSendsEscape: true
 
-XTerm*background: #000050 
+XTerm*background: #050505
 XTerm*foreground: white 
+!XTerm*geometry: 80x24
 !XTerm*customization: -color 
 !XTerm*toolBar:false 
 !XTerm*highlightSelection: true 
@@ -42,3 +44,6 @@ XTerm*foreground: white
 !XTerm.VT100*color14: cyan 
 !XTerm.VT100*color15: white 
 !XTerm.VT100*cursorColor: lime green
+
+!For Emacs
+!Emacs*geometry: 80x24
