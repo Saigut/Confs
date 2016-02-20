@@ -10,6 +10,8 @@ Do these confs before I can use Enlightenment comfortably.
   - Pointer -> Check Prevent all forms of pointer warping.
   - Miscellaneous -> Check Click raises the window.
 
+- In Extensions -> Notification Settings, Screen Policy -> Select Current screen.(Unsure if this can prevent notifications causing full screen games minimize.)
+
 - Modify actions of Mouse's Left and Right buttons.
 
 - Disable actions of Desktop's Left and Right edges.
