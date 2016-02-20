@@ -5,9 +5,10 @@ Do these confs before I can use Enlightenment comfortably.
 - In Windows Focus Settings:
   - Select Advanced.
   - Focus -> Select Sloppy(Pointer is seems the same).
+  - Focus -> New Windows Focus -> Select All windows.
   - Stacking -> Uncheck Raise windows on mouse over.
   - Pointer -> Check Prevent all forms of pointer warping.
-  - Miscellaneous -> Check Click raises the window
+  - Miscellaneous -> Check Click raises the window.
 
 - Modify actions of Mouse's Left and Right buttons.
 
