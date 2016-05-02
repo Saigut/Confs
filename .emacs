@@ -3,14 +3,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(make-backup-files nil)
- '(tool-bar-mode nil))
+ '(custom-enabled-themes (quote (deeper-blue)))
+ '(make-backup-files nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 112 :width normal)))))
+
+;;; Package
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
 
 ;;; For Ido-mode
 (require 'ido)
@@ -27,3 +36,14 @@
 ;;; Line number
 (global-linum-mode 1)  ; always show line numbers
 (setq linum-format "%2d ")  ; set format
+
+;;; Slime
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
+
+;;; Highlight matching brackets
+(show-paren-mode 1)
+
+;;; Screen scroll
+(setq scroll-step            1
+      scroll-conservatively  10000)
