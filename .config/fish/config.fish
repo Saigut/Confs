@@ -20,7 +20,9 @@ function fish_prompt
 #        set_color normal
 	 #echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ (set_color $fish_color_host) (hostname|cut -d . -f 1) (set_color normal) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) (__fish_git_prompt) (set_color normal) "> "
 	 set -l git_prompt (git branch 2>/dev/null | grep '^*' | colrm 1 2)
-	 echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ (set_color $fish_color_host) (hostname|cut -d . -f 1) (set_color normal) ' ' (set_color -o blue) (prompt_pwd) ' '
+	 #set -l pwd (echo -n $PWD | sed "s/^$home_escaped/~/" | sed 's/ /%20/g')
+	 set -l pwd (pwd|sed "s=$HOME=~=")
+	 echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ (set_color $fish_color_host) (hostname|cut -d . -f 1) (set_color normal) ' ' (set_color -o blue) $pwd ' '
 	 if test -n "$git_prompt"
 	    printf '['
 	    set_color yellow
