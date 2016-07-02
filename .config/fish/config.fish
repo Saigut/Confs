@@ -35,3 +35,5 @@ function fish_prompt
 end
 
 set fish_greeting ""
+
+alias emacs="emacs -nw"
