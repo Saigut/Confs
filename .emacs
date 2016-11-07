@@ -3,23 +3,25 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(c-default-style "cc-mode")
  '(custom-enabled-themes (quote (deeper-blue)))
  '(ido-enable-flex-matching t)
+ '(inhibit-startup-screen t)
  '(make-backup-files nil)
-; '(speedbar-show-unknown-files t)
-; '(speedbar-verbosity-level 2)
-; '(sr-speedbar-right-side nil)
-; '(sr-speedbar-skip-other-window-p nil)
-; '(sr-speedbar-width 33 t)
-)
+ '(semantic-tag-hierarchy-method nil)
+ '(show-paren-mode t)
+ '(speedbar-show-unknown-files t)
+ '(sr-speedbar-right-side nil)
+ '(sr-speedbar-skip-other-window-p nil)
+ '(sr-speedbar-width 33 t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 110 :width normal)))))
 
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
@@ -29,6 +31,22 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+(add-to-list 'load-path "~/.emacs.d/elisp")
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code."
+  t)
+
+(add-hook 'scheme-mode-hook
+  (lambda ()
+    (paredit-mode 1)
+    (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
+    (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)))
+
+(add-to-list 'auto-mode-alist '("\\.sls\\'" . scheme-mode))
+
+(require 'parenface)
+(set-face-foreground 'paren-face "DimGray")
+
 ;;; Load el files
 ;; (load-file "~/.emacs.d/load-directory.el")
 ;; (require 'load-directory)
@@ -36,9 +54,9 @@
 ;(load-file "~/.emacs.d/elisp/sr-speedbar.el")
 (load-file "~/.emacs.d/elisp/sr-speedbar-emacs-config.el")
 ;; fix windows
-(sr-speedbar-open)
-(with-current-buffer sr-speedbar-buffer-name
-(setq window-size-fixed 'width))
+;(sr-speedbar-open)
+;(with-current-buffer sr-speedbar-buffer-name
+;(setq window-size-fixed 'width))
 
 ;;; ido mode
 (require 'ido)
@@ -59,6 +77,9 @@
 ;;; Sr Speedbar
 ;; (require 'sr-speedbar)
 ;; (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+
+;; paredit-mode
+(global-set-key (kbd "C-c p") 'paredit-mode)
 
 ;;; Line number
 (global-linum-mode 1)  ; always show line numbers
